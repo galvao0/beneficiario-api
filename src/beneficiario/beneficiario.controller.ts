@@ -9,7 +9,7 @@ export class BeneficiarioController {
     benService: BeneficiarioService
 
     @Post()
-    async status(@Body() dto: CpfDto): Promise<string> {
+    async status(@Body() dto: CpfDto): Promise<any> {
         return await this.benService.status(dto)
     }
 }

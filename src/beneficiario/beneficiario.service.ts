@@ -14,7 +14,7 @@ export class BeneficiarioService {
     @Inject(ConfigService)
     private readonly configService: ConfigService;
 
-    async status(dto: CpfDto): Promise<string> {
+    async status(dto: CpfDto): Promise<any> {
         try {
             const url = this.configService.get<string>("API_URL_BASE");
 
@@ -32,7 +32,7 @@ export class BeneficiarioService {
                 }
             );
             
-            return data[0]?.statusContrato.nome;
+            return {status: data[0]?.statusContrato.nome };
 
         } catch (error) {
 
